@@ -7,10 +7,11 @@ export const addDigimonThunks =
     axios
       .get(`https://digimon-api.vercel.app/api/digimon/${digimonName}`)
       .then((res) => {
-        dispatch(addDigimon(res.data[0].name))
+        dispatch(addDigimon(res.data.name));
       })
       .catch((e) => {
+        console.log(e);
         setError(true);
-        setIsLoading(false)
+        setIsLoading(false);
       })
   }
