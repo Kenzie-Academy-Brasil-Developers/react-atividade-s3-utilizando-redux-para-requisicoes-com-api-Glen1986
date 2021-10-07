@@ -1,4 +1,3 @@
-
 import {ADD_DIGIMONS} from "./actionsTypes";
 
 const digimonsReducer = (state = [], action) => {
