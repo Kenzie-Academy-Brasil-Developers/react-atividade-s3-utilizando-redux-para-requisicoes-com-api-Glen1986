@@ -13,21 +13,23 @@ const Search = () => {
     setError(false)
     dispatch(addDigimonThunk(digimonName, setError, setIsLoading))
     setDigimonName("")
-  }
+  };
   return (
-    <div>
+    <>
       <h2>Procure pelo seu Digimon!</h2>
       <div>
         <input
           value={digimonName}
           placeholder="Procure seu Digimon"
-          onChange={(event) => setDigimonName(event.target.value)}
+          onChange={(e) => setDigimonName(e.target.value)}
         ></input>
       </div>
       <div>{error && <span>Digimon nao encontrado</span>}</div>
       <div>{isLoading && <span>Carregando</span>}</div>
-      <button disabled={!digimonName} onClick={handleSearch}>Pesquisar</button>
-    </div>
+      <div>
+        <button disabled={!digimonName} onClick={handleSearch}>Pesquisar</button>
+      </div>
+    </>
   );
 };
 
