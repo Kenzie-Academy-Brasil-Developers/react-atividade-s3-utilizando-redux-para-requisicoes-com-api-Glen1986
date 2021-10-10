@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {addDigimonThunks} from "../../store/modules/digimons/thunks";
+import {addDigimonThunk} from "../../store/modules/digimons/thunks";
 
 const Search = () => {
   const [digimonName, setDigimonName] = useState("");
@@ -11,7 +11,8 @@ const Search = () => {
 
   const handleSearch = () => {
     setError(false)
-    dispatch(addDigimonThunks(digimonName, setError, setIsLoading))
+    dispatch(addDigimonThunk(digimonName, setError, setIsLoading))
+    setDigimonName("")
   }
   return (
     <div>
@@ -19,8 +20,8 @@ const Search = () => {
       <div>
         <input
           value={digimonName}
-          onChange={(event) => setDigimonName(event.target.value)}
           placeholder="Procure seu Digimon"
+          onChange={(event) => setDigimonName(event.target.value)}
         ></input>
       </div>
       <div>{error && <span>Digimon nao encontrado</span>}</div>
